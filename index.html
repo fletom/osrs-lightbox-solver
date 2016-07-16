@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en-CA'>
+	<head>
+		<title>osrs-lightbox-solver</title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'/>
+		<link rel='stylesheet' type='text/css' href='main.css'/>
+		<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.slim.min.js'></script>
+		<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js'></script>
+		<script type='text/javascript' src='main.js'></script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-8519921-13', 'auto');
+			ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<h1>Oldschool RuneScape Master Clue Lightbox Solver (beta version)</h1>
+		<p id='prompt'>...</p>
+		<table id='matrix'>
+			<thead>
+				<th></th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+			</thead>
+			<tr id='r1'>
+				<th>1</th>
+				<td><input class='c1' type='checkbox'/></td>
+				<td><input class='c2' type='checkbox'/></td>
+				<td><input class='c3' type='checkbox'/></td>
+				<td><input class='c4' type='checkbox'/></td>
+				<td><input class='c5' type='checkbox'/></td>
+			</tr>
+			<tr id='r2'>
+				<th>2</th>
+				<td><input class='c1' type='checkbox'/></td>
+				<td><input class='c2' type='checkbox'/></td>
+				<td><input class='c3' type='checkbox'/></td>
+				<td><input class='c4' type='checkbox'/></td>
+				<td><input class='c5' type='checkbox'/></td>
+			</tr>
+			<tr id='r3'>
+				<th>3</th>
+				<td><input class='c1' type='checkbox'/></td>
+				<td><input class='c2' type='checkbox'/></td>
+				<td><input class='c3' type='checkbox'/></td>
+				<td><input class='c4' type='checkbox'/></td>
+				<td><input class='c5' type='checkbox'/></td>
+			</tr>
+			<tr id='r4'>
+				<th>4</th>
+				<td><input class='c1' type='checkbox'/></td>
+				<td><input class='c2' type='checkbox'/></td>
+				<td><input class='c3' type='checkbox'/></td>
+				<td><input class='c4' type='checkbox'/></td>
+				<td><input class='c5' type='checkbox'/></td>
+			</tr>
+			<tr id='r5'>
+				<th>5</th>
+				<td><input class='c1' type='checkbox'/></td>
+				<td><input class='c2' type='checkbox'/></td>
+				<td><input class='c3' type='checkbox'/></td>
+				<td><input class='c4' type='checkbox'/></td>
+				<td><input class='c5' type='checkbox'/></td>
+			</tr>
+		</table>
+		<p>
+			<input type='button' value='next' id='next'/>
+			<input type='button' value='reset' id='reset'/>
+		</p>
+		<!-- <details>
+			<summary>info</summary>
+			<p></p>
+		</details> -->
+		<p id='footer'>
+			This is a <a href='http://fletom.com/'>fletom</a> contraption.
+		</p>
+	</body>
+</html>
