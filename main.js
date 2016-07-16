@@ -74,7 +74,6 @@ $(function() {
 			$('#prompt').text("Click {0} once. Now which lights are on?".format(k));
 			steps.unshift(function() {
 				data[k] = xor_matrix(last_state, get_matrix_state());
-				console.log(data[k]);
 				next();
 			});
 		});
