@@ -62,28 +62,27 @@ $(function() {
 	});
 	
 	var data = {};
+	var last_state;
 	var steps = [];
 	var next = function() {
 		steps.shift()();
 	};
-	_(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'current']).each(function(k) {
+	$('#prompt').text("Which lights are currently on?");
+	_(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']).each(function(k) {
 		steps.push(function() {
-			if (k == 'current') {
-				$('#prompt').text("Which lights are currently on?");
-			}
-			else {
-				$('#prompt').text("Which lights does {0} affect?".format(k));
-			}
+			last_state = get_matrix_state();
+			$('#prompt').text("Click {0} once. Now which lights are on?".format(k));
 			steps.unshift(function() {
-				data[k] = get_matrix_state();
-				$('#matrix [type=checkbox]').prop('checked', false);
+				data[k] = xor_matrix(last_state, get_matrix_state());
+				console.log(data[k]);
 				next();
 			});
 		});
 	});
 	steps.push(function() {
+		last_state = get_matrix_state();
 		var solution = _(letter_cominations('ABCDEFGH')).find(function(letters) {
-			var m = data['current'];
+			var m = last_state;
 			_(letters).each(function(l) {
 				m = xor_matrix(m, data[l]);
 			});
@@ -98,15 +97,8 @@ $(function() {
 		}
 		
 		$('#next').prop('disabled', true);
-		$('#matrix [type=checkbox]').prop('checked', false);
+		$('#matrix [type=checkbox]').prop('checked', true);
 		$('#matrix [type=checkbox]').prop('disabled', true);
 	});
-	next();
-	$('#next').on('click', function() {
-		if (_.isEqual(get_matrix_state(), zero_matrix)) {
-			$('#matrix').addClass('error');
-			return;
-		}
-		next();
-	});
+	$('#next').on('click', next);
 });
