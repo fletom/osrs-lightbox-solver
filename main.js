@@ -89,7 +89,7 @@ $(function() {
 		});
 		
 		if (_.isUndefined(solution)) {
-			$('#prompt').text("No solution found, try again.");
+			$('#prompt').text("No solution found, try again and avoid mistakes.");
 		}
 		else {
 			$('#prompt').text("Click the following letters just once: {0}.".format(solution));
