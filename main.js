@@ -49,6 +49,12 @@ var get_matrix_state = function() {
 };
 
 $(function() {
+	$('#clear').on('click', function() {
+		$("#matrix input[type=checkbox]").each(function() {
+			$(this).prop("chcked", false);
+		});
+	});
+
 	$('#reset').on('click', function() {
 		location.reload(false);
 	});
